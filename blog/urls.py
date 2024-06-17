@@ -16,13 +16,14 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from python_blog import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # Добавляем главную страницу
-    path("", views.index),
-    # Добавляем категории
-    path("category/", views.category),
+    # Главная страница
+    
+    # Добавляем пакетно python_blog.urls
+    path("blog/", include("python_blog.urls")),
+    
 ]

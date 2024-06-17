@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from python_blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Добавляем главную страницу
+    path('', views.index),
 ]

@@ -27,3 +27,26 @@ python manage.py startapp python_blog
 
 **lesson_49: Создание проекта Blog и приложения python_blog**
 
+### INSTALLED_APPS
+
+1. Добавили приложение в `INSTALLED_APPS` в файле `settings.py`:
+2. Добавили функцию index в файле `views.py` в приложении `python_blog`
+3. Импортировали функцию index в файле `urls.py` в приложении `python_blog`
+4. Добавили путь к функции index в файле `urls.py` в приложении `python_blog`
+
+
+`INSTALLED_APPS` - это список всех приложений, установленных в Django. При создании нового приложения, его необходимо добавить в `INSTALLED_APPS` в файле `settings.py`:
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'python_blog',
+]
+```
+
+**lesson_49: Создание первого представления с HTTP-ответом**

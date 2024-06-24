@@ -8,6 +8,24 @@ CATEGORIES = {
     3: "Flask, бегите, глупцы!",
 }
 
+CATEGORIES_2 = [
+    {
+        'id': 1,
+        'name': 'Python',
+        'description': 'Чилл территории Python'
+    },
+    {
+        'id': 2,
+        'name': 'Django',
+        'description': 'Django, сложно, но можно!'
+    },
+    {
+        'id': 3,
+        'name': 'Flask',
+        'description': 'Flask, бегите, глупцы!'
+    }
+]
+
 
 def category_detail(request, category_id):
     """
@@ -38,7 +56,7 @@ def category(request):
     Представление для категорий.
     #TODO - хорошее место для изучения циклов шаблонизатора.
     """
-    context = {"categories": CATEGORIES.values()}
+    context = {"categories": CATEGORIES_2}
     return render(request, 'python_blog/categoris_list.html', context)
 
 class Developer:

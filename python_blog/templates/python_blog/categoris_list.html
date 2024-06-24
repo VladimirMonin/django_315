@@ -10,9 +10,20 @@
     {% comment %} <a href="/about/">About</a> {% endcomment %}
     <a href="{% url 'about' %}">About</a>
     <ul>
+        {% comment %} 
+        id
+        name
+        description {% endcomment %}
         {% for category in categories %}
         <li>
-            {{category }}
+            <p>{{ category.id }}</p>
+            <p>{{ category.name }}</p>
+            <p>{{ category.description }}</p>
+            {% comment %} 
+            category/1/
+            {% endcomment %}
+            <a href="{% url 'category' category.id %}">Подробнее</a>
+        </li>
         {% endfor %}
     </ul>
 </body>

@@ -60,10 +60,19 @@ about_data = {
     "text": "Мы - команда разработчиков, которая создает сайты на Django и Flask.",
     'stack_list': ['Python', 'Django', 'Flask'],
     "developers": [
-        {"name": "Иван", "age": 25, "stack": ["Python", "Django"]},
-        {"name": "Анна", "age": 23, "stack": ["Python", "Flask"]},
-        {"name": "Петр", "age": 30, "stack": ["JS", "React", "Vue"]},
-        
+        {"name": "Иван",
+         "age": 25,
+         "stack": ["Python", "Django"],
+         "is_active": True},
+        {"name": "Анна",
+         "age": 23,
+         "stack": ["Python", "Flask"],
+         "is_active": True},
+        {"name": "Петр",
+         "age": 30,
+         "stack": ["JS", "React", "Vue"],
+         "is_active": False},
+
     ]}
 
 

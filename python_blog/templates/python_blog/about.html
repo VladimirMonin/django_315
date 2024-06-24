@@ -21,7 +21,7 @@
     name - ключ словаря, содержащий имя разработчика age - ключ словаря с
     возрастом stack - ключ словаря содержащий список технологий {% endcomment %}
     <ul>
-      {% for developer in developers %}
+      {% for developer in developers %} {% if developer.is_active %}
       <li>
         <h3>{{ developer.name }}</h3>
         <p>Возраст: {{ developer.age }}</p>
@@ -32,7 +32,7 @@
           {% endfor %}
         </ul>
       </li>
-      {% endfor %}
+      {% endif %} {% endfor %}
     </ul>
   </body>
 </html>

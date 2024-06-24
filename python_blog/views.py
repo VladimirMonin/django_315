@@ -38,11 +38,8 @@ def category(request):
     Представление для категорий.
     #TODO - хорошее место для изучения циклов шаблонизатора.
     """
-    return HttpResponse(
-        """<ul><li>Python</li><li>Django</li><li>Flask</li></ul>
-        <a href="/">На главную</a>
-        """
-    )  # вернет список категорий на русском языке.
+    context = {"categories": CATEGORIES.values()}
+    return render(request, 'python_blog/categoris_list.html', context)
 
 class Developer:
     def __init__(self, name, stack:list):

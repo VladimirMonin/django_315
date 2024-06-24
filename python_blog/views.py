@@ -36,9 +36,34 @@ def index(request):
 def category(request):
     """
     Представление для категорий.
+    #TODO - хорошее место для изучения циклов шаблонизатора.
     """
     return HttpResponse(
         """<ul><li>Python</li><li>Django</li><li>Flask</li></ul>
         <a href="/">На главную</a>
         """
     )  # вернет список категорий на русском языке.
+
+class Developer:
+    def __init__(self, name, stack:list):
+        self.name = name
+        self.stack = stack
+
+    def __str__(self):
+        return f"{self.name} - {self.stack}"
+    
+    def get_rus_info(self):
+        return f"Разработчик {self.name} - {', '.join(self.stack)}"
+
+about_data = {
+    "title": "О нас",
+    "text": "Мы - команда разработчиков, которая создает сайты на Django и Flask.",
+    'stack_list': ['Python', 'Django', 'Flask'],
+    "developer1": Developer("Иван", ['Python', 'Django']),
+    "developer2": Developer("Алексей", ['Python', 'Flask']),
+}
+
+
+# Представление которое отрисует about.html
+def about(request):
+    return render(request, "python_blog/about.html", about_data)

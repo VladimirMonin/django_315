@@ -59,9 +59,13 @@ about_data = {
     "title": "О нас",
     "text": "Мы - команда разработчиков, которая создает сайты на Django и Flask.",
     'stack_list': ['Python', 'Django', 'Flask'],
-    "developer1": Developer("Иван", ['Python', 'Django']),
-    "developer2": Developer("Алексей", ['Python', 'Flask']),
-}
+    "developers": [
+        {"name": "Иван", "age": 25, "stack": ["Python", "Django"]},
+        {"name": "Анна", "age": 23, "stack": ["Python", "Flask"]},
+        {"name": "Петр", "age": 30, "stack": ["JS", "React", "Vue"]},
+        
+    ]}
+
 
 
 # Представление которое отрисует about.html

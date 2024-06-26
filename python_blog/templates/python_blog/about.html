@@ -1,44 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title}}</title>
-  </head>
-  <body>
-    <h1>{{ title}}</h1>
-    <p>{{ text }}</p>
-    <p>Попробуем отрисовать это циклом: {{ stack_list|join:" | " }}</p>
-    <ul>
-      {% for item in stack_list %} {% comment %} Объявили переменную item,
-      которая будет принимать значения из списка stack_list {% endcomment %}
-      <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
-    <h2>Наши разработчики</h2>
+{% extends "base.html" %} 
 
-    {% comment %} developers - список содержащий словари с данными разработчиков
-    name - ключ словаря, содержащий имя разработчика age - ключ словаря с
-    возрастом stack - ключ словаря содержащий список технологий {% endcomment %}
-    <ul>
-      {% for developer in developers %}
-      <li>
-        <h3>{{ developer.name }}</h3>
-        <p>Возраст: {{ developer.age }}</p>
-        <p>Стек технологий:</p>
-        <ul>
-          {% for stack in developer.stack %}
-          <li>{{ stack }}</li>
-          {% endfor %}
-        </ul>
-      </li>
-      {% comment %} Проверка, является ли итерация последней.
-      Если да, делаем hr {% endcomment %}
-      {% if forloop.last %}
-      <hr />
-      {% endif %}
 
-     {% endfor %}
-    </ul>
-  </body>
-</html>
+{% comment %} Тест коммет {% endcomment %} 
+{% block title %}О нас{% endblock %} 
+{% block content %}
+<h1>Добро пожаловать на страницу О нас!</h1>
+<p>Тут ничего нет, но когда-то будет!</p>
+{% endblock %}

@@ -15,4 +15,6 @@ urlpatterns = [
     path(
         "category/<int:category_id>/", views.category_detail, name="category"
     ),  # blog/category/1/
+    # Маршрут для блога
+    path("", views.blog, name="blog"),  # blog/
 ]

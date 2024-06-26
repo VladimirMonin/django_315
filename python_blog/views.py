@@ -1,5 +1,7 @@
+from calendar import c
 from django.shortcuts import render
 from django.http import Http404
+from django.template import context
 
 CATEGORIES = {
     1: "Чилл территории Python",
@@ -25,6 +27,29 @@ CATEGORIES_2 = [
     }
 ]
 
+# page_alias - переменная, которая содержит алиас текущей страницы.
+# Чтобы сделать её "активной"
+# Нужно передать это значение через контекст в шаблон!!!
+
+menu = [
+    {
+        "name": "Главная",
+        "url": "/",
+        "alias": "main"
+    },
+    {
+        "name": "Блог",
+        "url": "/blog/",
+        "alias": "blog"
+    },
+    {
+        "name": "О проекте",
+        "url": "/about/",
+        "alias": "about"
+    }
+]
+
+
 
 def category_detail(request, category_id):
     """
@@ -43,8 +68,34 @@ def main(request):
     """
     Представление для главной страницы.
     """
-    return render(request, 'main.html')
+    context = {"menu": menu}
+    context['title'] = "Главная страница"
+    context['page_alias'] = 'main'
+    print(context)
 
+    return render(request, 'main.html', context)
+
+
+def about(request):
+    """
+    Представление для главной страницы.
+    """
+    context = {"menu": menu}
+    context['title'] = "О нас"
+    context['page_alias'] = 'about'
+
+    return render(request, 'python_blog/about.html', context)
+
+
+def blog(request):
+    """
+    Представление для главной страницы.
+    """
+    context = {"menu": menu}
+    context['title'] = "Блог"
+    context['page_alias'] = 'blog'
+
+    return render(request, 'python_blog/blog.html', context)
 
 def category(request):
     """
@@ -54,39 +105,3 @@ def category(request):
     context = {"categories": CATEGORIES_2}
     return render(request, 'python_blog/categoris_list.html', context)
 
-class Developer:
-    def __init__(self, name, stack:list):
-        self.name = name
-        self.stack = stack
-
-    def __str__(self):
-        return f"{self.name} - {self.stack}"
-    
-    def get_rus_info(self):
-        return f"Разработчик {self.name} - {', '.join(self.stack)}"
-
-about_data = {
-    "title": "О нас",
-    "text": "Мы - команда разработчиков, которая создает сайты на Django и Flask.",
-    'stack_list': ['Python', 'Django', 'Flask'],
-    "developers": [
-        {"name": "Иван",
-         "age": 25,
-         "stack": ["Python", "Django"],
-         "is_active": True},
-        {"name": "Анна",
-         "age": 23,
-         "stack": ["Python", "Flask"],
-         "is_active": True},
-        {"name": "Петр",
-         "age": 30,
-         "stack": ["JS", "React", "Vue"],
-         "is_active": False},
-
-    ]}
-
-
-
-# Представление которое отрисует about.html
-def about(request):
-    return render(request, "python_blog/about.html", about_data)

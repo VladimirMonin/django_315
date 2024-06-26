@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.http import Http404
 
 CATEGORIES = {
@@ -40,15 +39,11 @@ def category_detail(request, category_id):
     return render(request, 'python_blog/test_template.html', context=context)
 
 
-def index(request):
+def main(request):
     """
     Представление для главной страницы.
     """
-    return HttpResponse(
-        """<h1>Мой блог!</h1>
-        <a href="/category/">Категории</a>
-        """
-    )  # вернет страничку с заголовком "Мой блог!" на русском языке.
+    return render(request, 'main.html')
 
 
 def category(request):

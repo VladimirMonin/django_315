@@ -20,8 +20,7 @@ page_alias - переменная, которая содержит алиас т
           <a class="nav-link" href="#">Рекомендуемые</a>
           <a class="nav-link" href="#">Цена</a> {% endcomment %}
             {% for item in menu %}
-                <a class="nav-link
-                {% if item.alias == page_alias %} active {% endif %}"
+                <a class="nav-link {% if item.alias == page_alias %} active {% endif %}"
                 href="{% url item.alias %}">{{ item.title }}</a>
             {% endfor %}
         </div>

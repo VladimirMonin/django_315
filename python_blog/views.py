@@ -119,38 +119,30 @@ def category_detail(request, category_id):
 
 
 def main(request):
-    """
-    Представление для главной страницы.
-    """
-    context = {"menu": menu}
-    context['title'] = "Главная страница"
-    context['page_alias'] = 'main'
-    print(context)
-
+    context = {
+        "menu": menu,
+        "page_alias": "main",
+        "title": "Главная страница"
+    }
     return render(request, 'main.html', context)
 
-
 def about(request):
-    """
-    Представление для главной страницы.
-    """
-    context = {"menu": menu}
-    context['title'] = "О нас"
-    context['page_alias'] = 'about'
-
+    context = {
+        "menu": menu,
+        "page_alias": "about",
+        "title": "О нас"
+    }
     return render(request, 'python_blog/about.html', context)
 
-
 def blog(request):
-    """
-    Представление для главной страницы.
-    """
-    context = {"menu": menu}
-    context['title'] = "Блог"
-    context['page_alias'] = 'blog'
-    context['posts'] = posts
-
+    context = {
+        "menu": menu,
+        "page_alias": "blog",
+        "title": "Блог",
+        "posts": posts
+    }
     return render(request, 'python_blog/blog.html', context)
+
 
 def category(request):
     """

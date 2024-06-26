@@ -1,6 +1,6 @@
-
-<!DOCTYPE html> {% comment %} - `{% block title %}` для заголовка страницы. -
-`{% block head %}` для дополнительных стилей или скриптов в `<head>
+{% load static %} <!DOCTYPE html> {% comment %} - `{% block title %}` для
+заголовка страницы. - `{% block head %}` для дополнительных стилей или скриптов
+в `<head>
   `. - `{% block style %}` который будет находится внутри одноименного тега, и
   даст возможность подключить дополнительные стили. Подключите в него Bootstrap
   5 и внешний стиль, который окрасит `body` в цвет **AliceBlue**. - `{% block
@@ -26,25 +26,23 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
       />
+      <style>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block style %}
+        {% endblock %}
+      </style>
     </head>
     <body>
       <header>
-        {% block nav %}
-        {% include "includes/nav.html" %}
-        {% endblock %}
+        {% block nav %} {% include "includes/nav.html" %} {% endblock %}
       </header>
       <main>
-        <div class="container-xl">
-            {% block content %}
-            {% endblock %}
-        </div>
+        <div class="container-xl">{% block content %} {% endblock %}</div>
       </main>
       <footer>
         {% block footer %}
         <div class="container-xl">
-          <p class="text-center text-muted">
-            &copy; 2024 Пайтон Блог
-          </p>
+          <p class="text-center text-muted">&copy; 2024 Пайтон Блог</p>
         </div>
         {% endblock %}
       </footer>
@@ -54,7 +52,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"
       ></script>
-        {% block scripts %}{% endblock %}
+      {% block scripts %}{% endblock %}
     </body>
   </html>
 </head>

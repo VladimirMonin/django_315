@@ -4,7 +4,7 @@ page_alias - переменная, которая содержит алиас т
 Нужно передать это значение через контекст в шаблон!!!
 {% endcomment %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">ЛОГОТИП</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
@@ -13,8 +13,14 @@ page_alias - переменная, которая содержит алиас т
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           {% for item in menu %}
-            <a class="nav-link {% if item.alias == page_alias %} active {% endif %}" href="{% url item.alias %}">{{ item.name }}</a>
-          {% endfor %}
+          <li class="nav-item">
+            <a class="nav-link 
+            {% if item.alias == page_alias %} 
+            active 
+            {% endif %}"
+            href="{% url item.alias %}">{{ item.name }}</a>
+          </li>
+            {% endfor %}
         </div>
       </div>
     </div>
